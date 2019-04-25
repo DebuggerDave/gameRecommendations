@@ -9,7 +9,6 @@ import { Friend } from './models/friend';
 })
 export class AppComponent {
   title = 'gameRecommendations';
-  key = '592D600C5FCED934E6BDF1546FFD1E0E';
   steamID: number;
   friends: Friend[];
 
