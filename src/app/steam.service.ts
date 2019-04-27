@@ -13,13 +13,21 @@ export class SteamService {
   constructor(private http: HttpClient) { }
 
   /** GET friends */
-  getFriends(steamid: number): Observable<any> {
+  getFriends(steamid: string): Observable<any> {
     return this.http.get(this.url + '/steam/friends/' + steamid);
   }
 
   /** GET friends */
-  getUserData(steamid: number): Observable<any> {
+  getUserData(steamid: string): Observable<any> {
     return this.http.get<any>(this.url + '/steam/userData/' + steamid);
+  }
+
+  getOwnedGames(steamid: string): Observable<any> {
+    return this.http.get<any>(this.url + '/steam/ownedGames/' + steamid);
+  }
+
+  getGameSchema(appid: string): Observable<any> {
+    return this.http.get<any>(this.url + '/steam/gameSchema/' + appid);
   }
 
 }

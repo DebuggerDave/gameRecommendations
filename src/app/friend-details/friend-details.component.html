@@ -1,0 +1,4 @@
+<h1 *ngIf="friendData">{{friendData.personaname}}</h1>
+<div *ngIf="friendGames && games">
+<h4 *ngFor="let game of gamesInCommon">gameName: {{game.name}}  gameid: {{game.appid}}  playtime: {{game.playtime_forever}}</h4>
+</div>

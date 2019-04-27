@@ -1,0 +1,4 @@
+<h1>Friends</h1>
+<div *ngIf="friends">
+  <button (click)="navigate(friend.steamid)" *ngFor="let friend of friends">{{friend.name}}</button>
+</div>
