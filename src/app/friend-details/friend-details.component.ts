@@ -48,9 +48,11 @@ export class FriendDetailsComponent implements OnInit {
           }
         }
         for (const game of this.gamesInCommon) {
-          this.steamService.getGameSchema(game.appid).subscribe(data3 => {
-            game.name = data3.game.gameName;
-          });
+          if (game) {
+            this.steamService.getUnofficialGameSchema(game.appid).subscribe(data3 => { 
+              game.name = data3[game.appid].data.name;
+            });
+          }
         }
       });
     });

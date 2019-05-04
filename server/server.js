@@ -51,6 +51,17 @@ app.get('/steam/gameSchema/:appid', function(httpRequest, httpResponse) {
     });
 });
 
+app.get('/steam/gameSchema/unofficial/:appid', function(httpRequest, httpResponse) {
+    var appid = httpRequest.params.appid;
+    // Calculate the Steam API URL we want to use
+    var url = 'http://store.steampowered.com/api/appdetails?' + 
+        'appids=' + appid;
+    request.get(url, function(error, steamHttpResponse, steamHttpBody) {
+        httpResponse.setHeader('Content-Type', 'application/json');
+        httpResponse.send(steamHttpBody);
+    });
+});
+
 var port = 4000;
 var server = app.listen(port);
 console.log('Listening on port ' + port);

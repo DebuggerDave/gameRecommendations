@@ -30,4 +30,8 @@ export class SteamService {
     return this.http.get<any>(this.url + '/steam/gameSchema/' + appid);
   }
 
+  getUnofficialGameSchema(appid: string): Observable<any> {
+    return this.http.get<any>(this.url + '/steam/gameSchema/unofficial/' + appid);
+  }
+
 }
