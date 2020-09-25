@@ -4,6 +4,14 @@ var express = require('express');
 var request = require('request');
 var app = express();
 
+// for local debugging
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 app.get('/steam/friends/:steamid', function(httpRequest, httpResponse) {
     var steamid = httpRequest.params.steamid;
     // Calculate the Steam API URL we want to use
